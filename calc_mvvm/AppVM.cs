@@ -20,6 +20,7 @@ namespace calc_mvvm
         Commands _getContent;
         Commands _getAction;
         string _str;
+        char _action;
         public AppVM(MainWindow view)
         {
             _view = view;
@@ -33,6 +34,7 @@ namespace calc_mvvm
 
             _chooseAction = false;
             _getContent = new Commands(SetValue);
+            _getAction = new Commands(SetAction);
         }
         public Commands GetContent { get { return _getContent; } }
         public Commands GetAction { get { return _getAction; } }
@@ -43,16 +45,28 @@ namespace calc_mvvm
                 _num1 = Double.Parse((string)param);
 
                 _str += _num1.ToString();
+
+                _view.Text1.Text = _str;
+                _num1 = Double.Parse(_str);
             }
             else
             {
                 _num2 = Double.Parse((string)param);
 
                 _str += _num2.ToString();
+                _num2 = Double.Parse(_str);
             }
 
             _view.Text2.Text = _str;
-            _view.Text1.Text = _str;
+        }
+        private void SetAction(object param)
+        {
+            _view.Text1.Text = _num1.ToString() + " " + (string)param;
+
+            _action = Char.Parse((string)param);
+            _chooseAction = true;
+
+            _str = null;
         }
     }
 }
