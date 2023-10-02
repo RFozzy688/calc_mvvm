@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calc_mvvm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Калькулятор" Height="400" Width="420">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
+        <Menu Height="20" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="4">
+            <MenuItem Header="Theme">
+                <MenuItem Header="1"/>
+                <MenuItem Header="1"/>
+                <MenuItem Header="1"/>
+            </MenuItem>
+        </Menu>
+
+        <TextBlock Text="qwe" Margin="5,0,5,0" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="1" />
+
+        <TextBlock  Text="54" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
+
+        <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="0" >%</Button>
+        <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
+        <Button Margin="3,0,3,3" Grid.Row="3" Grid.Column="3" >Back</Button>
+
+        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="0" >1/x</Button>
+        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="1" >x^2</Button>
+        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="2" >sqwr</Button>
+        <Button Margin="3,0,3,3" Grid.Row="4" Grid.Column="3" >/</Button>
+
+        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="0" >7</Button>
+        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="1" >8</Button>
+        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="2" >9</Button>
+        <Button Margin="3,0,3,3" Grid.Row="5" Grid.Column="3" >*</Button>
+
+        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="0" >4</Button>
+        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="1" >5</Button>
+        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="2" >6</Button>
+        <Button Margin="3,0,3,3" Grid.Row="6" Grid.Column="3" >-</Button>
+
+        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="0" >1</Button>
+        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="1" >2</Button>
+        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="2" >3</Button>
+        <Button Margin="3,0,3,3" Grid.Row="7" Grid.Column="3" >+</Button>
+
+        <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="0" >+/-</Button>
+        <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="1" >0</Button>
+        <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="2" >,</Button>
+        <Button Margin="3,0,3,3" Grid.Row="8" Grid.Column="3" >=</Button>
     </Grid>
+
+
 </Window>
