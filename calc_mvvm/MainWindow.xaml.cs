@@ -23,6 +23,8 @@ namespace calc_mvvm
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new AppVM(this);
         }
     }
 }

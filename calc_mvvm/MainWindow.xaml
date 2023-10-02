@@ -33,9 +33,9 @@
             </MenuItem>
         </Menu>
 
-        <TextBlock Text="qwe" Margin="5,0,5,0" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="1" />
+        <TextBlock Name="Text1" Margin="5,0,5,0" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="1" />
 
-        <TextBlock  Text="54" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
+        <TextBlock Name="Text2" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
 
         <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="0" >%</Button>
         <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
@@ -46,23 +46,23 @@
         <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="2" >sqwr</Button>
         <Button Margin="3,0,3,3" Grid.Row="4" Grid.Column="3" >/</Button>
 
-        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="0" >7</Button>
-        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="1" >8</Button>
-        <Button Margin="3,0,0,3" Grid.Row="5" Grid.Column="2" >9</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="7" Margin="3,0,0,3" Grid.Row="5" Grid.Column="0" >7</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="8" Margin="3,0,0,3" Grid.Row="5" Grid.Column="1" >8</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="9" Margin="3,0,0,3" Grid.Row="5" Grid.Column="2" >9</Button>
         <Button Margin="3,0,3,3" Grid.Row="5" Grid.Column="3" >*</Button>
 
-        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="0" >4</Button>
-        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="1" >5</Button>
-        <Button Margin="3,0,0,3" Grid.Row="6" Grid.Column="2" >6</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="4" Margin="3,0,0,3" Grid.Row="6" Grid.Column="0" >4</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="5" Margin="3,0,0,3" Grid.Row="6" Grid.Column="1" >5</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="6" Margin="3,0,0,3" Grid.Row="6" Grid.Column="2" >6</Button>
         <Button Margin="3,0,3,3" Grid.Row="6" Grid.Column="3" >-</Button>
 
-        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="0" >1</Button>
-        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="1" >2</Button>
-        <Button Margin="3,0,0,3" Grid.Row="7" Grid.Column="2" >3</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="1" Margin="3,0,0,3" Grid.Row="7" Grid.Column="0" >1</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="2" Margin="3,0,0,3" Grid.Row="7" Grid.Column="1" >2</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="3" Margin="3,0,0,3" Grid.Row="7" Grid.Column="2" >3</Button>
         <Button Margin="3,0,3,3" Grid.Row="7" Grid.Column="3" >+</Button>
 
         <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="0" >+/-</Button>
-        <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="1" >0</Button>
+        <Button Command="{Binding GetContent}" CommandParameter="0" Margin="3,0,0,3" Grid.Row="8" Grid.Column="1" >0</Button>
         <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="2" >,</Button>
         <Button Margin="3,0,3,3" Grid.Row="8" Grid.Column="3" >=</Button>
     </Grid>
