@@ -41,9 +41,9 @@
         <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
         <Button Margin="3,0,3,3" Grid.Row="3" Grid.Column="3" >Back</Button>
 
-        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="0" >1/x</Button>
-        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="1" >x^2</Button>
-        <Button Margin="3,0,0,3" Grid.Row="4" Grid.Column="2" >sqwr</Button>
+        <Button Command="{Binding GetActionOneOperand}" CommandParameter="i" Margin="3,0,0,3" Grid.Row="4" Grid.Column="0" >1/x</Button>
+        <Button Command="{Binding GetActionOneOperand}" CommandParameter="p" Margin="3,0,0,3" Grid.Row="4" Grid.Column="1" >x^2</Button>
+        <Button Command="{Binding GetActionOneOperand}" CommandParameter="s" Margin="3,0,0,3" Grid.Row="4" Grid.Column="2" >sqrt</Button>
         <Button Command="{Binding GetAction}" CommandParameter="/" Margin="3,0,3,3" Grid.Row="4" Grid.Column="3" >/</Button>
 
         <Button Command="{Binding GetContent}" CommandParameter="7" Margin="3,0,0,3" Grid.Row="5" Grid.Column="0" >7</Button>
@@ -64,7 +64,7 @@
         <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="0" >+/-</Button>
         <Button Command="{Binding GetContent}" CommandParameter="0" Margin="3,0,0,3" Grid.Row="8" Grid.Column="1" >0</Button>
         <Button Margin="3,0,0,3" Grid.Row="8" Grid.Column="2" >,</Button>
-        <Button Margin="3,0,3,3" Grid.Row="8" Grid.Column="3" >=</Button>
+        <Button Command="{Binding GetResult}" CommandParameter="=" Margin="3,0,3,3" Grid.Row="8" Grid.Column="3" >=</Button>
     </Grid>
 
 
