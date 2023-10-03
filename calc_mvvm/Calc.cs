@@ -16,5 +16,9 @@ namespace calc_mvvm
         public double Pow(double x, double y) { return x * x; }
         public double Sqrt(double x, double y) { return Math.Sqrt(x); }
         public double InverseProportionality(double x, double y) { return 1 / x; }
+        public double Percent(double x, double y)
+        {
+            return y / x;
+        }
     }
 }

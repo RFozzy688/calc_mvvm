@@ -13,7 +13,6 @@ namespace calc_mvvm
         Calc _calc;
         Dictionary<char, CalcDelegate> _actions;
         MainWindow _view;
-        bool _chooseAction;
         bool _isNum1;
         bool _isNum2;
         double _num1;
@@ -23,6 +22,9 @@ namespace calc_mvvm
         Commands _getAction;
         Commands _getResult;
         Commands _getActionOneOperand;
+        Commands _getActionPercent;
+        Commands _getReset;
+        Commands _getBackSpace;
         string _str;
         char _action;
         public AppVM(MainWindow view)
@@ -38,19 +40,26 @@ namespace calc_mvvm
             _actions['p'] = _calc.Pow;
             _actions['s'] = _calc.Sqrt;
             _actions['i'] = _calc.InverseProportionality;
+            _actions['%'] = _calc.Percent;
 
+            _action = ' ';
             _isNum1 = false;
             _isNum2 = false;
-            _chooseAction = false;
             _getContent = new Commands(SetValue);
             _getAction = new Commands(ChooseAction);
             _getResult = new Commands(Result);
             _getActionOneOperand = new Commands(ActionOneOperand);
+            _getActionPercent = new Commands(ActionPercent);
+            _getReset = new Commands(Reset);
+            _getBackSpace = new Commands(BackSpace);
         }
         public Commands GetContent { get { return _getContent; } }
         public Commands GetAction { get { return _getAction; } }
         public Commands GetResult { get { return _getResult; } }
         public Commands GetActionOneOperand { get {  return _getActionOneOperand; } }
+        public Commands GetActionPercent { get { return _getActionPercent; } }
+        public Commands GetReset { get { return _getReset; } }
+        public Commands GetBackSpace { get { return _getBackSpace; } }
         private void SetValue(object param)
         {
             if (!_isNum1)
@@ -59,7 +68,6 @@ namespace calc_mvvm
 
                 _str += _num1.ToString();
 
-                //_view.Text1.Text = _str;
                 _num1 = Double.Parse(_str);
             }
             else
@@ -86,7 +94,7 @@ namespace calc_mvvm
                 _num1 = _result;
                 _isNum2 = false;
 
-                _str = null;
+                _str = "";
             }
             else
             {
@@ -95,7 +103,7 @@ namespace calc_mvvm
 
                 _isNum1 = true;
 
-                _str = null;
+                _str = "";
             }
         }
         private double Calculation()
@@ -124,6 +132,11 @@ namespace calc_mvvm
                 _view.Text1.Text += String.Format(" 1 / {0}", _num1);
                 _view.Text2.Text = _result.ToString();
             }
+            else if (ch == '%')
+            {
+                _view.Text1.Text = String.Format("{0} {1} {2}", _num1, _action, _num2);
+                _view.Text2.Text = _result.ToString();
+            }
             else 
             {
                 _view.Text1.Text = String.Format("{0} {1} ", _result, _action);
@@ -132,6 +145,8 @@ namespace calc_mvvm
         }
         private void Result(object param)
         {
+            if (_action == ' ') return;
+
             double x = _num2;
             _result = Calculation();
 
@@ -140,7 +155,7 @@ namespace calc_mvvm
             _num1 = _result;
             _isNum2 = false;
 
-            _str = null;
+            //_str = null;
         }
         private void ActionOneOperand(object param)
         {
@@ -169,6 +184,47 @@ namespace calc_mvvm
                 _result = Calculation();
                 ShowResult(_action);
                 _num1 = _result;
+            }
+        }
+        private void ActionPercent(object param)
+        {
+            char previousAction = _action;
+            _action = Char.Parse((string)param);
+
+            _result = Calculation();
+            _num2 = _result;
+
+            _action = previousAction;
+
+            ShowResult(Char.Parse((string)param));
+        }
+        private void Reset(object param)
+        {
+            _isNum1 = false;
+            _isNum2 = false;
+            _num1 = 0;
+            _num2 = 0;
+            _result = 0;
+            _str = "";
+            _action = ' ';
+            _view.Text1.Text = "";
+            _view.Text2.Text = "";
+        }
+        private void BackSpace(object param)
+        {
+            if (_str.Length != 0)
+            {
+                _str = _str.Remove(_str.Length - 1);
+                _view.Text2.Text = _str;
+
+                if (!_isNum2)
+                {
+                    _num1 = Double.Parse(_str);
+                }
+                else
+                {
+                    _num2 = Double.Parse(_str);
+                }
             }
         }
     }

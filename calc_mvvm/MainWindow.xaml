@@ -37,9 +37,9 @@
 
         <TextBlock Name="Text2" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
 
-        <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="0" >%</Button>
-        <Button Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
-        <Button Margin="3,0,3,3" Grid.Row="3" Grid.Column="3" >Back</Button>
+        <Button Command="{Binding GetActionPercent}" CommandParameter="%" Margin="3,0,0,3" Grid.Row="3" Grid.Column="0" >%</Button>
+        <Button Command="{Binding GetReset}" CommandParameter="c" Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
+        <Button Command="{Binding GetBackSpace}" CommandParameter="b" Margin="3,0,3,3" Grid.Row="3" Grid.Column="3" >Back</Button>
 
         <Button Command="{Binding GetActionOneOperand}" CommandParameter="i" Margin="3,0,0,3" Grid.Row="4" Grid.Column="0" >1/x</Button>
         <Button Command="{Binding GetActionOneOperand}" CommandParameter="p" Margin="3,0,0,3" Grid.Row="4" Grid.Column="1" >x^2</Button>
