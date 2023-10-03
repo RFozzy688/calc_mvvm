@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace calc_mvvm
 {
@@ -25,6 +26,7 @@ namespace calc_mvvm
         Commands _getActionPercent;
         Commands _getReset;
         Commands _getBackSpace;
+        Commands _getTheme;
         string _str;
         char _action;
         public AppVM(MainWindow view)
@@ -52,6 +54,9 @@ namespace calc_mvvm
             _getActionPercent = new Commands(ActionPercent);
             _getReset = new Commands(Reset);
             _getBackSpace = new Commands(BackSpace);
+            _getTheme = new Commands(ThemeChange);
+
+            ThemeChange((object)"ExpressionDark");
         }
         public Commands GetContent { get { return _getContent; } }
         public Commands GetAction { get { return _getAction; } }
@@ -60,6 +65,7 @@ namespace calc_mvvm
         public Commands GetActionPercent { get { return _getActionPercent; } }
         public Commands GetReset { get { return _getReset; } }
         public Commands GetBackSpace { get { return _getBackSpace; } }
+        public Commands GetTheme { get { return _getTheme; } }
         private void SetValue(object param)
         {
             if (!_isNum1)
@@ -226,6 +232,14 @@ namespace calc_mvvm
                     _num2 = Double.Parse(_str);
                 }
             }
+        }
+        private void ThemeChange(object param)
+        {
+            string style = (string)param;
+            var uri = new Uri(style + ".xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
     }
 }

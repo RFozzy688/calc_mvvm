@@ -14,7 +14,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="20"/>
             <RowDefinition Height="40"/>
             <RowDefinition />
@@ -25,17 +25,17 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Menu Height="20" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="4">
+        <Menu Height="30" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4">
             <MenuItem Header="Theme">
-                <MenuItem Header="1"/>
-                <MenuItem Header="1"/>
-                <MenuItem Header="1"/>
+                <MenuItem Header="Expression Dark" Command="{Binding GetTheme}" CommandParameter="ExpressionDark"/>
+                <MenuItem Header="Expression Light" Command="{Binding GetTheme}" CommandParameter="ExpressionLight"/>
+                <MenuItem Header="ShinyBlue" Command="{Binding GetTheme}" CommandParameter="ShinyBlue"/>
             </MenuItem>
         </Menu>
 
         <TextBlock Name="Text1" Margin="5,0,5,0" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="1" />
 
-        <TextBlock Name="Text2" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
+        <TextBlock Name="Text2" Text="0" Margin="5,0,5,0" Height="40" HorizontalAlignment="Right" Grid.ColumnSpan="4" Grid.Row="2" FontWeight="Bold" FontSize="30" />
 
         <Button Command="{Binding GetActionPercent}" CommandParameter="%" Margin="3,0,0,3" Grid.Row="3" Grid.Column="0" >%</Button>
         <Button Command="{Binding GetReset}" CommandParameter="c" Margin="3,0,0,3" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >C</Button>
